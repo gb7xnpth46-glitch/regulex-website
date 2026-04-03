@@ -1,0 +1,16 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+
+# Clean URLs - serve .html files without extension
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
