@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "regulex-public-services",
+      "type": "skill-md",
+      "description": "Find REGULEX public information about ongoing legal advisory and corporate structuring, and prepare non-confidential questions for a consultation.",
+      "url": "/.well-known/agent-skills/regulex-public-services/SKILL.md",
+      "digest": "sha256:47f6885d31d0165ffb9c6c45447c67057fbb3e688fd9a15950230948f90f1560"
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+# Search permission for existing public content; other use preferences are unspecified.
+Content-Signal: search=yes
 
 # AI Crawlers — explicitly allowed
 User-agent: GPTBot

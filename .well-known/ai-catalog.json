@@ -1,0 +1,21 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "REGULEX Legal Consultancy",
+    "identifier": "regulex-legal.com"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:regulex-legal.com:skill:public-services",
+      "displayName": "REGULEX public service navigation",
+      "type": "text/markdown; profile=\"urn:air:agent-skills\"",
+      "url": "https://regulex-legal.com/.well-known/agent-skills/regulex-public-services/SKILL.md",
+      "description": "Find REGULEX public information about ongoing legal advisory and corporate structuring, and prepare non-confidential questions for a consultation.",
+      "representativeQueries": [
+        "Find ongoing legal advisory for my company in the UAE",
+        "Find REGULEX information about corporate structuring",
+        "Prepare non-confidential questions for a REGULEX consultation"
+      ]
+    }
+  ]
+}
