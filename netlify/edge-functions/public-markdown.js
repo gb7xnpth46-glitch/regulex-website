@@ -82,7 +82,7 @@ export default async function publicMarkdown(request, context) {
   headers.set("Netlify-CDN-Cache-Control", "no-store");
   const unchanged = () => new Response(response.body, { status: response.status, statusText: response.statusText, headers });
   // Never transform authenticated, cookie-bearing, query-specific, private or gated responses.
-  if (request.headers.has("authorization") || request.headers.has("cookie") || url.search
+  if (request.headers.get("authorization")?.trim() || request.headers.get("cookie")?.trim() || url.search
       || request.headers.has("range") || request.method === "HEAD"
       || !prefersMarkdown(request.headers.get("accept")) || response.status !== 200
       || !headers.get("content-type")?.toLowerCase().includes("text/html")
