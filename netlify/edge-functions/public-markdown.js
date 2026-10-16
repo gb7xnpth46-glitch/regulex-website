@@ -76,6 +76,10 @@ export default async function publicMarkdown(request, context) {
   const vary = new Set((headers.get("vary") || "").split(",").map(s => s.trim()).filter(Boolean));
   if (![...vary].some(v => v.toLowerCase() === "accept") && !vary.has("*")) vary.add("Accept");
   headers.set("Vary", [...vary].join(", "));
+  // Keep HTML and Markdown distinct even through intermediaries that ignore Vary: Accept.
+  // Browser cache policy and all original private/no-store checks remain authoritative.
+  headers.set("CDN-Cache-Control", "no-store");
+  headers.set("Netlify-CDN-Cache-Control", "no-store");
   const unchanged = () => new Response(response.body, { status: response.status, statusText: response.statusText, headers });
   // Never transform authenticated, cookie-bearing, query-specific, private or gated responses.
   if (request.headers.has("authorization") || request.headers.has("cookie") || url.search
