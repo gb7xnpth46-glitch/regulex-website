@@ -80,20 +80,32 @@ export default async function publicMarkdown(request, context) {
   // Browser cache policy and all original private/no-store checks remain authoritative.
   headers.set("CDN-Cache-Control", "no-store");
   headers.set("Netlify-CDN-Cache-Control", "no-store");
-  const unchanged = () => new Response(response.body, { status: response.status, statusText: response.statusText, headers });
+  const unchanged = (reason = "policy") => {
+    // Temporary format-only diagnostic; never includes header values or user data.
+    if (headers.get("content-type")?.includes("text/html")) {
+      headers.set("Content-Type", `${headers.get("content-type")}; agent-mode=${reason}`);
+    }
+    return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
+  };
   // Never transform authenticated, cookie-bearing, query-specific, private or gated responses.
   if (request.headers.get("authorization")?.trim() || request.headers.get("cookie")?.trim() || url.search
       || request.headers.has("range") || request.method === "HEAD"
       || !prefersMarkdown(request.headers.get("accept")) || response.status !== 200
       || !headers.get("content-type")?.toLowerCase().includes("text/html")
       || headers.has("set-cookie") || /private|no-store/i.test(headers.get("cache-control") || "")
-      || /noindex/i.test(headers.get("x-robots-tag") || "")) return unchanged();
+      || /noindex/i.test(headers.get("x-robots-tag") || "")) {
+    const reason = request.headers.get("authorization")?.trim() || request.headers.get("cookie")?.trim() ? "stateful"
+      : url.search ? "query" : request.headers.has("range") ? "range"
+      : request.method === "HEAD" ? "head" : !prefersMarkdown(request.headers.get("accept")) ? "html"
+      : response.status !== 200 ? "status" : "origin-policy";
+    return unchanged(reason);
+  }
   const html = await response.clone().text();
   const noindex = [...html.matchAll(/<meta\b[^>]*>/gi)].some(([tag]) =>
     /\bname\s*=\s*["']robots["']/i.test(tag) && /\bcontent\s*=\s*["'][^"']*noindex/i.test(tag));
-  if (html.length > 2_000_000 || noindex) return unchanged();
+  if (html.length > 2_000_000 || noindex) return unchanged("document-policy");
   const markdown = toMarkdown(html, url.origin + path);
-  if (!markdown) return unchanged();
+  if (!markdown) return unchanged("conversion");
   await response.body?.cancel();
   for (const key of ["content-length", "content-encoding", "content-range", "etag", "last-modified"]) headers.delete(key);
   headers.set("Content-Type", "text/markdown; charset=utf-8");
