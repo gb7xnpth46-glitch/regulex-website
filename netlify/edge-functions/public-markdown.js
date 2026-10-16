@@ -7,6 +7,11 @@ const publicPaths = new Set([
   "/news-publications/newsletter-1", "/news-publications/regulation-of-mainland",
 ]);
 
+// Published articles (incl. future newsletter issues): lowercase slug only, so
+// draft files such as _preview-*.html and non-page assets are never matched.
+const articlePath = /^\/news-publications\/[a-z0-9][a-z0-9-]*$/;
+const isPublicPath = path => publicPaths.has(path) || articlePath.test(path);
+
 function decodeEntities(text) {
   const entities = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ",
     mdash: "—", ndash: "–", rsquo: "’", lsquo: "‘", rdquo: "”", ldquo: "“",
@@ -70,7 +75,7 @@ export function prefersMarkdown(accept) {
 export default async function publicMarkdown(request, context) {
   const url = new URL(request.url);
   const path = url.pathname.replace(/\/$/, "") || "/";
-  if (!publicPaths.has(path) || !["GET", "HEAD"].includes(request.method)) return;
+  if (!isPublicPath(path) || !["GET", "HEAD"].includes(request.method)) return;
   const stateful = request.headers.get("authorization")?.trim() || request.headers.get("cookie")?.trim();
   const wantsMarkdown = request.method === "GET" && prefersMarkdown(request.headers.get("accept"));
   // These allowlisted routes are static public documents. Ignore query parameters
@@ -111,4 +116,4 @@ export default async function publicMarkdown(request, context) {
   return new Response(markdown, { status: 200, headers });
 }
 
-export const config = { path: [...publicPaths], onError: "bypass" };
+export const config = { path: [...publicPaths, "/news-publications/*"], onError: "bypass" };
