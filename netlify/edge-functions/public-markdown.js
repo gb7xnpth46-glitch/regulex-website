@@ -71,7 +71,15 @@ export default async function publicMarkdown(request, context) {
   const url = new URL(request.url);
   const path = url.pathname.replace(/\/$/, "") || "/";
   if (!publicPaths.has(path) || !["GET", "HEAD"].includes(request.method)) return;
-  const response = await context.next();
+  const stateful = request.headers.get("authorization")?.trim() || request.headers.get("cookie")?.trim();
+  const wantsMarkdown = request.method === "GET" && prefersMarkdown(request.headers.get("accept"));
+  // These allowlisted routes are static public documents. Ignore query parameters
+  // only for anonymous Markdown, rather than forwarding cache-busters or tokens.
+  // HTML requests retain their original semantics; no personalized data is fetched.
+  const canonical = new URL(request.url);
+  canonical.search = "";
+  const response = wantsMarkdown && !stateful && !request.headers.has("range") && url.search
+    ? await context.next(new Request(canonical, request)) : await context.next();
   const headers = new Headers(response.headers);
   const vary = new Set((headers.get("vary") || "").split(",").map(s => s.trim()).filter(Boolean));
   if (![...vary].some(v => v.toLowerCase() === "accept") && !vary.has("*")) vary.add("Accept");
@@ -80,32 +88,20 @@ export default async function publicMarkdown(request, context) {
   // Browser cache policy and all original private/no-store checks remain authoritative.
   headers.set("CDN-Cache-Control", "no-store");
   headers.set("Netlify-CDN-Cache-Control", "no-store");
-  const unchanged = (reason = "policy") => {
-    // Temporary format-only diagnostic; never includes header values or user data.
-    if (headers.get("content-type")?.includes("text/html")) {
-      headers.set("Content-Type", `${headers.get("content-type")}; agent-mode=${reason}`);
-    }
-    return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
-  };
-  // Never transform authenticated, cookie-bearing, query-specific, private or gated responses.
-  if (request.headers.get("authorization")?.trim() || request.headers.get("cookie")?.trim() || url.search
+  const unchanged = () => new Response(response.body, { status: response.status, statusText: response.statusText, headers });
+  // Never transform authenticated, cookie-bearing, private or gated responses.
+  if (stateful
       || request.headers.has("range") || request.method === "HEAD"
       || !prefersMarkdown(request.headers.get("accept")) || response.status !== 200
       || !headers.get("content-type")?.toLowerCase().includes("text/html")
       || headers.has("set-cookie") || /private|no-store/i.test(headers.get("cache-control") || "")
-      || /noindex/i.test(headers.get("x-robots-tag") || "")) {
-    const reason = request.headers.get("authorization")?.trim() || request.headers.get("cookie")?.trim() ? "stateful"
-      : url.search ? "query" : request.headers.has("range") ? "range"
-      : request.method === "HEAD" ? "head" : !prefersMarkdown(request.headers.get("accept")) ? "html"
-      : response.status !== 200 ? "status" : "origin-policy";
-    return unchanged(reason);
-  }
+      || /noindex/i.test(headers.get("x-robots-tag") || "")) return unchanged();
   const html = await response.clone().text();
   const noindex = [...html.matchAll(/<meta\b[^>]*>/gi)].some(([tag]) =>
     /\bname\s*=\s*["']robots["']/i.test(tag) && /\bcontent\s*=\s*["'][^"']*noindex/i.test(tag));
-  if (html.length > 2_000_000 || noindex) return unchanged("document-policy");
+  if (html.length > 2_000_000 || noindex) return unchanged();
   const markdown = toMarkdown(html, url.origin + path);
-  if (!markdown) return unchanged("conversion");
+  if (!markdown) return unchanged();
   await response.body?.cancel();
   for (const key of ["content-length", "content-encoding", "content-range", "etag", "last-modified"]) headers.delete(key);
   headers.set("Content-Type", "text/markdown; charset=utf-8");
