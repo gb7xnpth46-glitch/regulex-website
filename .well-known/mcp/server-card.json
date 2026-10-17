@@ -1,0 +1,15 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/v1/server-card.schema.json",
+  "name": "com.regulex-legal/public-library",
+  "version": "1.0.0",
+  "title": "REGULEX Public Library",
+  "description": "Search and read REGULEX public publications on UAE law and list its service pages.",
+  "websiteUrl": "https://regulex-legal.com",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://regulex-legal.com/mcp",
+      "supportedProtocolVersions": ["2025-11-25", "2025-06-18", "2025-03-26"]
+    }
+  ]
+}

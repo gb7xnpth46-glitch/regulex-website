@@ -1,0 +1,62 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "REGULEX Public Library API",
+    "version": "1.0.0",
+    "summary": "Read-only access to REGULEX public publications on UAE law and its service pages.",
+    "description": "General public information from REGULEX Legal Consultancy. Not legal advice; verify rules against current official sources. No authentication, no client data, no write operations. To read a publication as Markdown, request its url with Accept: text/markdown.",
+    "contact": { "name": "REGULEX Legal Consultancy", "email": "info@regulex-legal.com", "url": "https://regulex-legal.com" }
+  },
+  "servers": [{ "url": "https://regulex-legal.com" }],
+  "paths": {
+    "/api/v1/articles.json": {
+      "get": {
+        "operationId": "listPublications",
+        "summary": "List all public articles and newsletter issues, newest first",
+        "responses": { "200": { "description": "Publication index", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PublicationIndex" } } } } }
+      }
+    },
+    "/api/v1/services.json": {
+      "get": {
+        "operationId": "listServices",
+        "summary": "List REGULEX service pages and public contact channels",
+        "responses": { "200": { "description": "Service index", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ServiceIndex" } } } } }
+      }
+    },
+    "/api/health.json": {
+      "get": {
+        "operationId": "getStatus",
+        "summary": "API status",
+        "responses": { "200": { "description": "Status", "content": { "application/json": { "schema": { "type": "object", "properties": { "status": { "type": "string", "enum": ["ok"] } } } } } } }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Publication": {
+        "type": "object",
+        "required": ["slug", "title", "type", "url"],
+        "properties": {
+          "slug": { "type": "string" },
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "datePublished": { "type": ["string", "null"], "format": "date" },
+          "type": { "type": "string", "enum": ["article", "newsletter"] },
+          "url": { "type": "string", "format": "uri" }
+        }
+      },
+      "PublicationIndex": {
+        "type": "object",
+        "properties": { "notice": { "type": "string" }, "count": { "type": "integer" }, "items": { "type": "array", "items": { "$ref": "#/components/schemas/Publication" } } }
+      },
+      "ServiceIndex": {
+        "type": "object",
+        "properties": {
+          "notice": { "type": "string" },
+          "contact": { "type": "object", "properties": { "whatsapp": { "type": "string", "format": "uri" }, "email": { "type": "string", "format": "email" }, "note": { "type": "string" } } },
+          "items": { "type": "array", "items": { "type": "object", "properties": { "slug": { "type": "string" }, "title": { "type": "string" }, "description": { "type": "string" }, "url": { "type": "string", "format": "uri" } } } }
+        }
+      }
+    }
+  }
+}

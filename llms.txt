@@ -47,3 +47,10 @@ REGULEX Legal Consultancy (REGULEX FZ-LLC) is led by Oleg Pikalov, a legal profe
 - [News & Publications](https://regulex-legal.com/news-publications)
 - [Careers](https://regulex-legal.com/careers)
 - [Privacy Policy](https://regulex-legal.com/privacy)
+
+## Machine-readable access (read-only, public information)
+
+- MCP server (Streamable HTTP): https://regulex-legal.com/mcp — tools: search_publications, get_publication, list_services
+- Publication index (JSON): https://regulex-legal.com/api/v1/articles.json
+- API documentation: https://regulex-legal.com/api/v1/README.md · OpenAPI: https://regulex-legal.com/openapi.json
+- Any page as Markdown: request it with `Accept: text/markdown`

@@ -16,6 +16,29 @@
         "Find REGULEX information about corporate structuring",
         "Prepare non-confidential questions for a REGULEX consultation"
       ]
+    },
+    {
+      "identifier": "urn:air:regulex-legal.com:mcp:public-library",
+      "displayName": "REGULEX Public Library (MCP server)",
+      "type": "application/mcp-server-card+json",
+      "url": "https://regulex-legal.com/mcp/server-card",
+      "description": "Read-only MCP server to search and read REGULEX public publications on UAE law and list its service pages.",
+      "representativeQueries": [
+        "What has REGULEX published about UAE corporate tax?",
+        "Find the latest Regulex Legal Intelligence newsletter",
+        "List REGULEX legal services and how to contact them"
+      ]
+    },
+    {
+      "identifier": "urn:air:regulex-legal.com:skill:public-library",
+      "displayName": "REGULEX public library search",
+      "type": "text/markdown; profile=\"urn:air:agent-skills\"",
+      "url": "https://regulex-legal.com/.well-known/agent-skills/regulex-public-library/SKILL.md",
+      "description": "Search and read REGULEX public articles and newsletter issues on UAE law through its read-only API or MCP server, and cite them correctly.",
+      "representativeQueries": [
+        "Search REGULEX articles on DIFC and ADGM",
+        "Summarise the latest REGULEX newsletter with sources"
+      ]
     }
   ]
 }

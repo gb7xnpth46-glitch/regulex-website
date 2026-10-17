@@ -1,0 +1,46 @@
+{
+  "notice": "General public information from REGULEX Legal Consultancy. Not legal advice; verify rules against current official sources. Scope and fees are agreed with REGULEX directly.",
+  "contact": {
+    "whatsapp": "https://wa.me/971527229941",
+    "email": "info@regulex-legal.com",
+    "note": "Contact is made by the user. Agents must not send messages on a user's behalf without their consent."
+  },
+  "items": [
+    {
+      "slug": "legal-services-subscription",
+      "title": "Ongoing Legal Advisory",
+      "description": "Retainer-based legal support with ongoing compliance monitoring, contract review, and priority access to counsel in UAE.",
+      "url": "https://regulex-legal.com/legal-services-subscription"
+    },
+    {
+      "slug": "structuring-private-clients",
+      "title": "Structuring & Private Clients",
+      "description": "Business relocation, asset structuring, nominee arrangements, holding company design, and wealth preservation in UAE.",
+      "url": "https://regulex-legal.com/structuring-private-clients"
+    },
+    {
+      "slug": "corporate",
+      "title": "Corporate Structuring & M&A",
+      "description": "Entity formation, governance, shareholder agreements, mergers, acquisitions across UAE Mainland, DIFC, ADGM.",
+      "url": "https://regulex-legal.com/corporate"
+    },
+    {
+      "slug": "commercial-law",
+      "title": "Commercial Law & International Trade",
+      "description": "Drafting, review, and negotiation of commercial contracts, supply agreements, and cross-border trade documentation in UAE.",
+      "url": "https://regulex-legal.com/commercial-law"
+    },
+    {
+      "slug": "legal-drafting",
+      "title": "Legal Drafting & Risk Protection",
+      "description": "Professional legal document drafting services in Dubai: contracts, NDAs, MOUs, board resolutions, and corporate governance documents across UAE jurisdictions.",
+      "url": "https://regulex-legal.com/legal-drafting"
+    },
+    {
+      "slug": "international-arbitration",
+      "title": "International Arbitration & Disputes",
+      "description": "Representation in complex commercial arbitration under LCIA, DIAC, ICC rules. Multimillion-dollar dispute resolution in UAE.",
+      "url": "https://regulex-legal.com/international-arbitration"
+    }
+  ]
+}

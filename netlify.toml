@@ -1,5 +1,7 @@
 [build]
   publish = "."
+  # Rebuild the public read-only API index from the published HTML pages.
+  command = "node scripts/build-public-index.mjs"
 
 [[redirects]]
   from = "/index.html"
@@ -45,5 +47,45 @@
   for = "/.well-known/poppy.json"
   [headers.values]
     Content-Type = "application/json; charset=utf-8"
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+# Public read-only API and MCP discovery (public information only, no auth, no writes).
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+[[headers]]
+  for = "/api/v1/README.md"
+  [headers.values]
+    Content-Type = "text/markdown; charset=utf-8"
+
+[[headers]]
+  for = "/openapi.json"
+  [headers.values]
+    Content-Type = "application/vnd.oai.openapi+json; charset=utf-8"
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+[[headers]]
+  for = "/.well-known/api-catalog"
+  [headers.values]
+    Content-Type = 'application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"'
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+[[headers]]
+  for = "/mcp/server-card"
+  [headers.values]
+    Content-Type = "application/mcp-server-card+json; charset=utf-8"
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+[[headers]]
+  for = "/.well-known/mcp/server-card.json"
+  [headers.values]
+    Content-Type = "application/mcp-server-card+json; charset=utf-8"
     Access-Control-Allow-Origin = "*"
     Cache-Control = "public, max-age=300, must-revalidate"
