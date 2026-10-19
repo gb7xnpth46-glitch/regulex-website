@@ -142,7 +142,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="ft-b"><span class="ft-c">&copy; 2026 REGULEX Legal Consultancy</span><span class="ft-c"><a href="/privacy" style="color:inherit">Privacy Policy</a></span></div>
 </div></footer>
 <script>
-document.querySelectorAll('.fade').forEach(function(el){new IntersectionObserver(function(e){if(e[0].isIntersecting)e[0].target.classList.add('vi')},{threshold:.06}).observe(el)});
+document.querySelectorAll('.fade').forEach(function(el){if(el.getBoundingClientRect().top<innerHeight){el.classList.add('vi');return}new IntersectionObserver(function(e){if(e[0].isIntersecting)e[0].target.classList.add('vi')},{threshold:.06}).observe(el)});
 </script>
 </body>
 </html>
