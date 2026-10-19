@@ -18,6 +18,18 @@
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
     Link = '</llms.txt>; rel="describedby"; type="text/plain"'
 
+# Self-hosted fonts and site images: file names change when the file changes.
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
 # Discovery files describe public information only, never client records or private APIs.
 [[headers]]
   for = "/.well-known/agent-skills/*"
