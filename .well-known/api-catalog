@@ -2,9 +2,45 @@
   "linkset": [
     {
       "anchor": "https://regulex-legal.com/api/v1/",
-      "service-desc": [{ "href": "https://regulex-legal.com/openapi.json", "type": "application/vnd.oai.openapi+json" }],
-      "service-doc": [{ "href": "https://regulex-legal.com/api/v1/README.md", "type": "text/markdown" }],
-      "status": [{ "href": "https://regulex-legal.com/api/health.json", "type": "application/json" }]
+      "service-desc": [
+        {
+          "href": "https://regulex-legal.com/openapi.json",
+          "type": "application/vnd.oai.openapi+json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://regulex-legal.com/api/v1/README.md",
+          "type": "text/markdown"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://regulex-legal.com/api/health.json",
+          "type": "application/json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://regulex-legal.com/api/v1/inquiries",
+      "service-desc": [
+        {
+          "href": "https://regulex-legal.com/openapi.json",
+          "type": "application/vnd.oai.openapi+json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://regulex-legal.com/auth.md",
+          "type": "text/markdown"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://regulex-legal.com/.well-known/oauth-protected-resource",
+          "type": "application/json"
+        }
+      ]
     }
   ]
 }

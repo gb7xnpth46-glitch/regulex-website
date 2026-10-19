@@ -1,0 +1,9 @@
+{
+  "name": "regulex-website",
+  "private": true,
+  "type": "module",
+  "description": "Static site plus Netlify Functions for the public MCP server and the OAuth-protected inquiry API.",
+  "dependencies": {
+    "@netlify/blobs": "^10.7.13"
+  }
+}

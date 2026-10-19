@@ -30,6 +30,28 @@
   [headers.values]
     Cache-Control = "public, max-age=2592000"
 
+# OAuth discovery for the protected inquiry API (see /auth.md).
+[[headers]]
+  for = "/.well-known/oauth-authorization-server"
+  [headers.values]
+    Content-Type = "application/json; charset=utf-8"
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+[[headers]]
+  for = "/.well-known/oauth-protected-resource"
+  [headers.values]
+    Content-Type = "application/json; charset=utf-8"
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+[[headers]]
+  for = "/auth.md"
+  [headers.values]
+    Content-Type = "text/markdown; charset=utf-8"
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=300, must-revalidate"
+
 # Discovery files describe public information only, never client records or private APIs.
 [[headers]]
   for = "/.well-known/agent-skills/*"

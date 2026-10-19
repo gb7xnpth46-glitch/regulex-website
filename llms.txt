@@ -54,3 +54,9 @@ REGULEX Legal Consultancy (REGULEX FZ-LLC) is led by Oleg Pikalov, a legal profe
 - Publication index (JSON): https://regulex-legal.com/api/v1/articles.json
 - API documentation: https://regulex-legal.com/api/v1/README.md · OpenAPI: https://regulex-legal.com/openapi.json
 - Any page as Markdown: request it with `Accept: text/markdown`
+
+## Sending an enquiry through an AI agent (protected)
+
+- POST https://regulex-legal.com/api/v1/inquiries sends an enquiry for a person who approved it on regulex-legal.com (OAuth 2.1 with PKCE, or auth.md agentic registration). Scope: inquiries:write. It cannot read any data.
+- Instructions for agents: https://regulex-legal.com/auth.md
+- Discovery: https://regulex-legal.com/.well-known/oauth-protected-resource and https://regulex-legal.com/.well-known/oauth-authorization-server

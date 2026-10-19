@@ -1,0 +1,10 @@
+{
+  "resource": "https://regulex-legal.com",
+  "resource_name": "REGULEX inquiry API",
+  "resource_logo_uri": "https://regulex-legal.com/icon-192.png",
+  "authorization_servers": ["https://regulex-legal.com"],
+  "scopes_supported": ["inquiries:write"],
+  "bearer_methods_supported": ["header"],
+  "resource_documentation": "https://regulex-legal.com/auth.md",
+  "resource_policy_uri": "https://regulex-legal.com/privacy"
+}

@@ -1,0 +1,42 @@
+{
+  "issuer": "https://regulex-legal.com",
+  "authorization_endpoint": "https://regulex-legal.com/oauth2/authorize",
+  "token_endpoint": "https://regulex-legal.com/oauth2/token",
+  "registration_endpoint": "https://regulex-legal.com/oauth2/register",
+  "revocation_endpoint": "https://regulex-legal.com/oauth2/revoke",
+  "jwks_uri": "https://regulex-legal.com/.well-known/jwks.json",
+  "scopes_supported": ["inquiries:write"],
+  "response_types_supported": ["code"],
+  "response_modes_supported": ["query"],
+  "grant_types_supported": [
+    "authorization_code",
+    "urn:ietf:params:oauth:grant-type:jwt-bearer",
+    "urn:workos:agent-auth:grant-type:claim"
+  ],
+  "token_endpoint_auth_methods_supported": ["none"],
+  "revocation_endpoint_auth_methods_supported": ["none"],
+  "code_challenge_methods_supported": ["S256"],
+  "authorization_response_iss_parameter_supported": true,
+  "service_documentation": "https://regulex-legal.com/auth.md",
+  "op_policy_uri": "https://regulex-legal.com/privacy",
+
+  "resource": "https://regulex-legal.com",
+  "authorization_servers": ["https://regulex-legal.com"],
+  "bearer_methods_supported": ["header"],
+
+  "agent_auth": {
+    "skill": "https://regulex-legal.com/auth.md",
+    "register_uri": "https://regulex-legal.com/agent/identity",
+    "identity_endpoint": "https://regulex-legal.com/agent/identity",
+    "claim_uri": "https://regulex-legal.com/agent/identity/claim",
+    "claim_endpoint": "https://regulex-legal.com/agent/identity/claim",
+    "revocation_uri": "https://regulex-legal.com/oauth2/revoke",
+    "identity_types_supported": ["anonymous"],
+    "credential_types_supported": ["access_token"],
+    "anonymous": {
+      "credential_types_supported": ["access_token"],
+      "pre_claim_scopes": [],
+      "post_claim_scopes": ["inquiries:write"]
+    }
+  }
+}
