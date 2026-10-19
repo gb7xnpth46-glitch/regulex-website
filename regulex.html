@@ -142,7 +142,7 @@ footer{background:var(--g);padding:44px 0 32px}.ft-in{display:flex;justify-conte
 .hero-mono img{width:100%;height:100%;object-fit:contain;object-position:top left}
 .hero{position:relative;overflow:hidden}
 .hero-in{position:relative;z-index:1}
-.fade{opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}.fade.vi{opacity:1;transform:translateY(0)}
+.fade{transition:opacity .5s,transform .5s}.fade.fo{opacity:0;transform:translateY(16px)}
 @keyframes snapIn{from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
 @keyframes fu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 
@@ -217,7 +217,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="av"><h3>Industry Breadth</h3><p>Experience across trade, technology, finance, and real assets.</p></div>
 </div>
 </div>
-<div class="about-img fade"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=60&fit=crop&fm=webp&w=400" srcset="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=60&fit=crop&fm=webp&w=400 400w, https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=60&fit=crop&fm=webp&w=800 800w" sizes="(max-width: 768px) 100vw, 50vw" alt="Corporate architecture Dubai" loading="lazy" decoding="async"></div>
+<div class="about-img fade"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=60&fit=crop&fm=webp&w=400" srcset="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=60&fit=crop&fm=webp&w=400 400w, https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=60&fit=crop&fm=webp&w=600 600w, https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=60&fit=crop&fm=webp&w=800 800w" sizes="(max-width: 768px) 100vw, 50vw" alt="Corporate architecture Dubai" loading="lazy" decoding="async"></div>
 </div></div></section>
 
 
@@ -338,7 +338,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
 document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)window.scrollTo({top:t.offsetTop-64,behavior:'smooth'})});});
 new IntersectionObserver(function(e){e.forEach(function(el){if(el.isIntersecting)el.target.classList.add('vi')});},{threshold:.06}).observe(document.body);
-(function(){var els=[].slice.call(document.querySelectorAll('.fade')),h=innerHeight,tops=els.map(function(el){return el.getBoundingClientRect().top}),io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vi');io.unobserve(e.target)}})},{threshold:.06});els.forEach(function(el,i){if(tops[i]<h)el.classList.add('vi');else io.observe(el)})})();
+(function(){if(!window.IntersectionObserver)return;var io=new IntersectionObserver(function(es){es.forEach(function(e){var t=e.target;if(e.isIntersecting){t.classList.remove('fo');io.unobserve(t)}else if(!t.dataset.fs){t.classList.add('fo')}t.dataset.fs=1})});document.querySelectorAll('.fade').forEach(function(el){io.observe(el)})})();
 </script>
 </body>
 </html>

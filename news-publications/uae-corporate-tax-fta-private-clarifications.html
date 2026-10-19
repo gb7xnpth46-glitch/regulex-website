@@ -197,7 +197,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script>
 new IntersectionObserver(function(e){e.forEach(function(el){if(el.isIntersecting)el.target.classList.add('vi')});},{threshold:.06}).observe(document.body);
-(function(){var els=[].slice.call(document.querySelectorAll('.fade')),h=innerHeight,tops=els.map(function(el){return el.getBoundingClientRect().top}),io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vi');io.unobserve(e.target)}})},{threshold:.06});els.forEach(function(el,i){if(tops[i]<h)el.classList.add('vi');else io.observe(el)})})();
+(function(){if(!window.IntersectionObserver)return;var io=new IntersectionObserver(function(es){es.forEach(function(e){var t=e.target;if(e.isIntersecting){t.classList.remove('fo');io.unobserve(t)}else if(!t.dataset.fs){t.classList.add('fo')}t.dataset.fs=1})});document.querySelectorAll('.fade').forEach(function(el){io.observe(el)})})();
 </script>
 </body>
 </html>

@@ -77,7 +77,7 @@ footer{background:var(--g);padding:44px 0 32px}.ft-in{display:flex;justify-conte
 
 .hero-mono{position:absolute;top:-400px;left:-1000px;width:2500px;height:2500px;opacity:.06;pointer-events:none;z-index:0}
 .hero-mono img{width:100%;height:100%;object-fit:contain;object-position:top left}
-.fade{opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}.fade.vi{opacity:1;transform:translateY(0)}
+.fade{transition:opacity .5s,transform .5s}.fade.fo{opacity:0;transform:translateY(16px)}
 @media(max-width:1024px){.intro-grid,.card-grid,.dark-grid,.kc-grid{grid-template-columns:1fr}.intro-img{height:260px}.kc-grid{grid-template-columns:140px 1fr}}
 @media(max-width:768px){.nk,.nc{display:none}.hero h1{font-size:1.8rem}.kc-grid{grid-template-columns:1fr}}
 </style>
@@ -174,7 +174,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script>
 new IntersectionObserver(function(e){e.forEach(function(el){if(el.isIntersecting)el.target.classList.add('vi')});},{threshold:.06}).observe(document.body);
-(function(){var els=[].slice.call(document.querySelectorAll('.fade')),h=innerHeight,tops=els.map(function(el){return el.getBoundingClientRect().top}),io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vi');io.unobserve(e.target)}})},{threshold:.06});els.forEach(function(el,i){if(tops[i]<h)el.classList.add('vi');else io.observe(el)})})();
+(function(){if(!window.IntersectionObserver)return;var io=new IntersectionObserver(function(es){es.forEach(function(e){var t=e.target;if(e.isIntersecting){t.classList.remove('fo');io.unobserve(t)}else if(!t.dataset.fs){t.classList.add('fo')}t.dataset.fs=1})});document.querySelectorAll('.fade').forEach(function(el){io.observe(el)})})();
 </script>
 </body>
 </html>

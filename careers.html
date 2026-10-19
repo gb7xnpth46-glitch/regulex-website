@@ -69,7 +69,7 @@ section{padding:clamp(64px,8vw,96px) 0}
 footer{background:var(--g);padding:44px 0 32px}.ft-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}.ft-l img{height:240px}
 .ft-k{display:flex;gap:24px;flex-wrap:wrap}.ft-k a{font-size:.84rem;color:rgba(255,255,255,.72);text-decoration:none}.ft-k a:hover{color:#fff}
 .ft-b{margin-top:28px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}.ft-c{font-size:.78rem;color:rgba(255,255,255,.72)}
-.fade{opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}.fade.vi{opacity:1;transform:translateY(0)}
+.fade{transition:opacity .5s,transform .5s}.fade.fo{opacity:0;transform:translateY(16px)}
 @media(max-width:1024px){.intro-grid,.dark-grid{grid-template-columns:1fr}.intro-img{height:260px}.kc-grid{grid-template-columns:140px 1fr}}
 @media(max-width:768px){.nk,.nc{display:none}.hero h1{font-size:1.8rem}.kc-grid{grid-template-columns:1fr}}</style>
 </head>
@@ -134,6 +134,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="ft-in"><a href="/" class="ft-l"><img src="/assets/img/regulex-logo-footer.svg" alt="REGULEX" width="414" height="240" loading="lazy" decoding="async"></a><div class="ft-k"><a href="/about">About</a><a href="/#services">Services</a><a href="/people">People</a><a href="/news-publications">News</a><a href="/#contact">Contact</a></div></div>
 <div class="ft-b"><span class="ft-c">&copy; 2026 REGULEX Legal Consultancy</span><span class="ft-c"><a href="/privacy" style="color:inherit">Privacy Policy</a></span></div>
 </div></footer>
-<script>(function(){var els=[].slice.call(document.querySelectorAll('.fade')),h=innerHeight,tops=els.map(function(el){return el.getBoundingClientRect().top}),io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vi');io.unobserve(e.target)}})},{threshold:.06});els.forEach(function(el,i){if(tops[i]<h)el.classList.add('vi');else io.observe(el)})})();</script>
+<script>(function(){if(!window.IntersectionObserver)return;var io=new IntersectionObserver(function(es){es.forEach(function(e){var t=e.target;if(e.isIntersecting){t.classList.remove('fo');io.unobserve(t)}else if(!t.dataset.fs){t.classList.add('fo')}t.dataset.fs=1})});document.querySelectorAll('.fade').forEach(function(el){io.observe(el)})})();</script>
 </body>
 </html>
