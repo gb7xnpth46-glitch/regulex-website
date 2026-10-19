@@ -167,7 +167,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script>
 new IntersectionObserver(function(e){e.forEach(function(el){if(el.isIntersecting)el.target.classList.add('vi')});},{threshold:.06}).observe(document.body);
-document.querySelectorAll('.fade').forEach(function(el){if(el.getBoundingClientRect().top<innerHeight){el.classList.add('vi');return}new IntersectionObserver(function(e){if(e[0].isIntersecting)e[0].target.classList.add('vi')},{threshold:.06}).observe(el)});
+(function(){var els=[].slice.call(document.querySelectorAll('.fade')),h=innerHeight,tops=els.map(function(el){return el.getBoundingClientRect().top}),io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vi');io.unobserve(e.target)}})},{threshold:.06});els.forEach(function(el,i){if(tops[i]<h)el.classList.add('vi');else io.observe(el)})})();
 </script>
 </body>
 </html>
