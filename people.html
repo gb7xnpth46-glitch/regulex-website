@@ -62,7 +62,7 @@ section{padding:clamp(64px,8vw,96px) 0}
 .cta{background:var(--g);padding:56px 0}.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
 .cta h2{font-family:var(--f);font-size:1.4rem;font-weight:500;color:#fff;margin-bottom:6px}.cta p{font-size:.86rem;color:rgba(255,255,255,.75)}
 .cta-btn{font-size:.76rem;font-weight:500;padding:14px 32px;background:#fff;color:var(--g);text-decoration:none;border-radius:var(--r)}.cta-btn:hover{transform:translateY(-2px)}
-footer{background:var(--g);padding:44px 0 32px}.ft-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}.ft-l img{height:240px}
+footer{background:var(--g);padding:44px 0 32px}.ft-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}.ft-l img{width:min(414px,100%);height:auto}
 .ft-k{display:flex;gap:24px;flex-wrap:wrap}.ft-k a{font-size:.84rem;color:rgba(255,255,255,.72);text-decoration:none}.ft-k a:hover{color:#fff}
 .ft-b{margin-top:28px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}.ft-c{font-size:.78rem;color:rgba(255,255,255,.72)}
 
@@ -87,7 +87,8 @@ footer{background:var(--g);padding:44px 0 32px}.ft-in{display:flex;justify-conte
 .pi-r{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:14px}
 .pi p{font-size:.84rem;color:rgba(255,255,255,.75);line-height:1.75}
 @media(max-width:1024px){.ppl-g{grid-template-columns:1fr 1fr}}
-@media(max-width:768px){.ppl-g{grid-template-columns:1fr}}</style>
+@media(max-width:768px){.ppl-g{grid-template-columns:1fr}}.nb{-webkit-tap-highlight-color:transparent;display:none;flex:none;width:44px;height:44px;align-items:center;justify-content:center;background:none;border:1px solid var(--b);border-radius:var(--r);color:var(--t);cursor:pointer}.nb:hover{border-color:var(--g);color:var(--g)}.ni .nb svg{width:20px;height:20px;stroke:currentColor;stroke-width:2;stroke-linecap:round;fill:none}.nb .nb-x{display:none}.nb[aria-expanded=true] .nb-o{display:none}.nb[aria-expanded=true] .nb-x{display:block}.nb:focus-visible,nav .nk a:focus-visible{outline:2px solid var(--g);outline-offset:3px}.nk-m{display:none}@media(max-width:768px){nav .nk,nav .nc{display:none}.nb{display:flex}nav.is-open .nk{display:flex;flex-direction:column;gap:0;position:absolute;top:80px;left:0;right:0;padding:4px clamp(20px,5vw,56px) 20px;background:#fff;border-bottom:1px solid var(--b);box-shadow:0 12px 24px rgba(0,0,0,.06)}nav.is-open .nk a{display:block;padding:14px 0;font-size:.95rem;border-bottom:1px solid var(--b)}nav.is-open .nk-m{display:block;padding-top:16px}nav.is-open .nk .nk-m a{text-align:center;border:none;font-size:.82rem;font-weight:500;padding:14px 22px;background:var(--g);color:#fff;border-radius:var(--r)}}
+</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -105,8 +106,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </defs>
 </svg>
 </a>
-<ul class="nk"><li><a href="/about">About</a></li><li><a href="/#services">Services</a></li><li><a href="/#experience">Experience</a></li><li><a href="/people">People</a></li><li><a href="/news-publications">Insights</a></li><li><a href="/#contact">Contact</a></li></ul>
-<a href="/#contact" class="nc">Get in Touch</a>
+<ul class="nk" id="nk"><li><a href="/about">About</a></li><li><a href="/#services">Services</a></li><li><a href="/#experience">Experience</a></li><li><a href="/people">People</a></li><li><a href="/news-publications">Insights</a></li><li><a href="/#contact">Contact</a></li><li class="nk-m"><a href="/#contact">Get in Touch</a></li></ul>
+<a href="/#contact" class="nc">Get in Touch</a><button type="button" class="nb" aria-label="Menu" aria-expanded="false" aria-controls="nk"><svg class="nb-o" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="nb-x" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
 </div></nav>
 
 <main>
@@ -145,5 +146,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 (function(){if(!window.IntersectionObserver)return;var io=new IntersectionObserver(function(es){es.forEach(function(e){var t=e.target;if(e.isIntersecting){t.classList.remove('fo');io.unobserve(t)}else if(!t.dataset.fs){t.classList.add('fo')}t.dataset.fs=1})});document.querySelectorAll('.fade').forEach(function(el){io.observe(el)})})();
 </script>
 <script>addEventListener('load',function(){var s=document.createElement('style');s.textContent="@font-face{font-family:'Source Serif 4';font-style:italic;font-weight:400;font-display:swap;src:url(/assets/fonts/source-serif-4-latin-italic-var.woff2) format('woff2')}";document.head.appendChild(s)});</script>
+<script>(function(){var b=document.querySelector('.nb'),n=document.querySelector('nav');if(!b||!n)return;function set(o){n.classList.toggle('is-open',o);b.setAttribute('aria-expanded',o?'true':'false');b.setAttribute('aria-label',o?'Close menu':'Menu')}b.addEventListener('click',function(){set(b.getAttribute('aria-expanded')!=='true')});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&n.classList.contains('is-open')){set(false);b.focus()}});document.addEventListener('click',function(e){if(n.classList.contains('is-open')&&!n.contains(e.target))set(false)});n.querySelectorAll('.nk a').forEach(function(a){a.addEventListener('click',function(){set(false)})});matchMedia('(min-width:769px)').addEventListener('change',function(e){if(e.matches)set(false)})})();</script>
 </body>
 </html>
