@@ -32,5 +32,5 @@ Server Card: <https://regulex-legal.com/mcp/server-card>
 
 ## Contact
 
-WhatsApp <https://wa.me/971527229941> · info@regulex-legal.com.
+info@regulex-legal.com.
 Agents must not send messages on a user's behalf without the user's consent.

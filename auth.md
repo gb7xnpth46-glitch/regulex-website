@@ -5,7 +5,7 @@ You are an AI agent. This file explains how to get permission to **send an enqui
 - Public content (articles, newsletters, service pages) needs no authentication: use `https://regulex-legal.com/llms.txt`, `https://regulex-legal.com/api/v1/articles.json` or the MCP server at `https://regulex-legal.com/mcp`.
 - A token never lets you read anything from REGULEX. It only allows `POST https://regulex-legal.com/api/v1/inquiries`.
 - A person must approve on regulex-legal.com before you can send anything. Do not send an enquiry the person has not asked for, and do not include confidential documents or other people's personal data.
-- REGULEX replies by email or WhatsApp. Sending an enquiry does not create a lawyer-client relationship; scope and fees are agreed with REGULEX directly.
+- REGULEX replies by email. Sending an enquiry does not create a lawyer-client relationship; scope and fees are agreed with REGULEX directly.
 
 ## Step 1: Discover
 
@@ -127,7 +127,7 @@ Content-Type: application/json
 - The reply email is always the one the person confirmed. An `email` field in the body is ignored.
 - At most 5 enquiries per hour per authorization.
 
-Success: `201` with `{ "id": "inq_...", "status": "received", "reply_to": "...", "message": "..." }`. Tell the person that REGULEX will reply by email or WhatsApp.
+Success: `201` with `{ "id": "inq_...", "status": "received", "reply_to": "...", "message": "..." }`. Tell the person that REGULEX will reply by email.
 
 ## Revocation
 

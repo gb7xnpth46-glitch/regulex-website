@@ -13,7 +13,7 @@
       "type": "skill-md",
       "description": "Search and read REGULEX public articles and newsletter issues on UAE law through its read-only API or MCP server, and cite them correctly.",
       "url": "/.well-known/agent-skills/regulex-public-library/SKILL.md",
-      "digest": "sha256:940ba3da00f6ce9de4f9cfce289dc5fd6b8908855cf19ffaf14fa575651af0e1"
+      "digest": "sha256:f3313869968a9893c003b17cf8c0f56d442abb9e416450d9e6fc0bc6326dd323"
     }
   ]
 }

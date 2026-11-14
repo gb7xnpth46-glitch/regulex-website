@@ -55,7 +55,7 @@ export default async function inquiries(req) {
   await store().setJSON(`inquiry/${id}`, { at: new Date().toISOString(), sub: t.sub }); // no personal data kept here
   return json({
     id, status: "received", reply_to: t.email,
-    message: "Thank you. The request has been sent and REGULEX will reply by email or WhatsApp.",
+    message: "Thank you. The request has been sent and REGULEX will reply by email.",
   }, 201);
 }
 

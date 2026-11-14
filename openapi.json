@@ -212,10 +212,6 @@
           "contact": {
             "type": "object",
             "properties": {
-              "whatsapp": {
-                "type": "string",
-                "format": "uri"
-              },
               "email": {
                 "type": "string",
                 "format": "email"

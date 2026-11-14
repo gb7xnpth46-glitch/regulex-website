@@ -77,7 +77,6 @@ try {
   write("services.json", {
     notice,
     contact: {
-      whatsapp: "https://wa.me/971527229941",
       email: "info@regulex-legal.com",
       note: "Contact is made by the user. Agents must not send messages on a user's behalf without their consent.",
     },
