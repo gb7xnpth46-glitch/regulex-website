@@ -55,6 +55,21 @@
   status = 301
 
 [[redirects]]
+  from = "/practices/corporate-law"
+  to = "/corporate"
+  status = 301
+
+[[redirects]]
+  from = "/practices"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/arbitration-law"
+  to = "/international-arbitration"
+  status = 301
+
+[[redirects]]
   from = "/corporate-law"
   to = "/corporate"
   status = 301
