@@ -28,4 +28,22 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
 Sitemap: https://regulex-legal.com/sitemap.xml
