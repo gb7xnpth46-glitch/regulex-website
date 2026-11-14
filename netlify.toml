@@ -8,6 +8,67 @@
   to = "/"
   status = 301
 
+# Addresses of the previous site that Google still requests (Search Console, Page indexing, 2026-11-14).
+[[redirects]]
+  from = "/services/corporate"
+  to = "/corporate"
+  status = 301
+
+[[redirects]]
+  from = "/services/international-arbitration"
+  to = "/international-arbitration"
+  status = 301
+
+[[redirects]]
+  from = "/services/legal-services-subscription"
+  to = "/legal-services-subscription"
+  status = 301
+
+[[redirects]]
+  from = "/services/legal-drafting"
+  to = "/legal-drafting"
+  status = 301
+
+[[redirects]]
+  from = "/services/commercial-law"
+  to = "/commercial-law"
+  status = 301
+
+[[redirects]]
+  from = "/services/structuring-private-clients"
+  to = "/structuring-private-clients"
+  status = 301
+
+[[redirects]]
+  from = "/services"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/Practices/corporate-law"
+  to = "/corporate"
+  status = 301
+
+[[redirects]]
+  from = "/Practices"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/corporate-law"
+  to = "/corporate"
+  status = 301
+
+[[redirects]]
+  from = "/commercial-law2"
+  to = "/commercial-law"
+  status = 301
+
+[[redirects]]
+  from = "/home-page-1"
+  to = "/"
+  status = 301
+
 # Clean URLs - serve .html files without extension
 [[headers]]
   for = "/*"
