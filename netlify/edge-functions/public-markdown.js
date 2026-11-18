@@ -10,7 +10,9 @@ const publicPaths = new Set([
 // Published articles (incl. future newsletter issues): lowercase slug only, so
 // draft files such as _preview-*.html and non-page assets are never matched.
 const articlePath = /^\/news-publications\/[a-z0-9][a-z0-9-]*$/;
-const isPublicPath = path => publicPaths.has(path) || articlePath.test(path);
+// Published guides: the hub (/guides) and lowercase guide slugs only.
+const guidePath = /^\/guides(\/[a-z0-9][a-z0-9-]*)?$/;
+const isPublicPath = path => publicPaths.has(path) || articlePath.test(path) || guidePath.test(path);
 
 function decodeEntities(text) {
   const entities = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ",
@@ -45,6 +47,8 @@ export function toMarkdown(html, sourceUrl) {
     .replace(/<\/h[1-6]\s*>/gi, "\n\n")
     .replace(/<li\b[^>]*>/gi, "\n- ")
     .replace(/<(?:br|hr)\b[^>]*\/?\s*>/gi, "\n")
+    // Table cells: keep columns apart so a row does not run together.
+    .replace(/<\/t[dh]\s*>/gi, " | ")
     .replace(/<\/(?:p|div|section|header|article|main|ul|ol|blockquote|tr)\s*>/gi, "\n\n")
     .replace(/<[^>]*>/g, "");
   text = decodeEntities(text).replace(/[<>]/g, c => c === "<" ? "&lt;" : "&gt;")
@@ -116,4 +120,4 @@ export default async function publicMarkdown(request, context) {
   return new Response(markdown, { status: 200, headers });
 }
 
-export const config = { path: [...publicPaths, "/news-publications/*"], onError: "bypass" };
+export const config = { path: [...publicPaths, "/news-publications/*", "/guides", "/guides/*"], onError: "bypass" };

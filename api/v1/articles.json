@@ -1,7 +1,87 @@
 {
   "notice": "General public information from REGULEX Legal Consultancy. Not legal advice; verify rules against current official sources. Scope and fees are agreed with REGULEX directly.",
-  "count": 13,
+  "count": 23,
   "items": [
+    {
+      "slug": "legal-retainer-ai-data-uae",
+      "title": "Data protection law UAE: a legal retainer for AI, SaaS and data companies",
+      "description": "How the federal data protection law, DIFC and ADGM rules and UAE AI policies affect AI, SaaS and data firms, and what a retainer from USD 990 a month covers.",
+      "datePublished": "2026-11-18",
+      "type": "guide",
+      "url": "https://regulex-legal.com/guides/legal-retainer-ai-data-uae"
+    },
+    {
+      "slug": "legal-retainer-banking-uae",
+      "title": "Banking lawyers in the UAE on retainer: legal support for finance companies",
+      "description": "Legal retainer for finance companies, payment firms and exchange houses in the UAE: central bank, AML and capital markets rules, scope, from USD 990 a month.",
+      "datePublished": "2026-11-18",
+      "type": "guide",
+      "url": "https://regulex-legal.com/guides/legal-retainer-banking-uae"
+    },
+    {
+      "slug": "legal-retainer-construction-uae",
+      "title": "Construction lawyer in the UAE: a legal retainer for construction companies",
+      "description": "Legal retainer for UAE contractors and consultants: muqawala rules since June 2026, Dubai Law 7 of 2025, FIDIC forms, guarantees. From USD 990 a month + VAT.",
+      "datePublished": "2026-11-18",
+      "type": "guide",
+      "url": "https://regulex-legal.com/guides/legal-retainer-construction-uae"
+    },
+    {
+      "slug": "legal-retainer-cybersecurity-uae",
+      "title": "UAE cyber law: a legal retainer for cybersecurity and IT security companies",
+      "description": "What UAE cyber law means for security vendors and their clients: cybercrime rules, breach notices, testing authorisations, a retainer from USD 990 a month.",
+      "datePublished": "2026-11-18",
+      "type": "guide",
+      "url": "https://regulex-legal.com/guides/legal-retainer-cybersecurity-uae"
+    },
+    {
+      "slug": "legal-retainer-healthcare-uae",
+      "title": "Healthcare lawyer on retainer: legal support for clinics and healthtech in the UAE",
+      "description": "What a healthcare lawyer on retainer does for UAE clinics and healthtech: regulators, licences, medical liability, health data, insurance rules and cost.",
+      "datePublished": "2026-11-18",
+      "type": "guide",
+      "url": "https://regulex-legal.com/guides/legal-retainer-healthcare-uae"
+    },
+    {
+      "slug": "legal-retainer-insurance-uae",
+      "title": "UAE insurance law: a legal retainer for insurance businesses",
+      "description": "What insurance lawyers in the UAE handle on retainer for brokers, agents, insurtech and employers: the 2025 insurance law, health cover and cost.",
+      "datePublished": "2026-11-18",
+      "type": "guide",
+      "url": "https://regulex-legal.com/guides/legal-retainer-insurance-uae"
+    },
+    {
+      "slug": "legal-retainer-marketing-uae",
+      "title": "Marketing legal services in the UAE: a legal retainer for advertising, PR and influencer agencies",
+      "description": "Marketing legal services for UAE agencies: influencer permits, advertising law, consumer and data rules, and a legal retainer from USD 990 a month + VAT.",
+      "datePublished": "2026-11-18",
+      "type": "guide",
+      "url": "https://regulex-legal.com/guides/legal-retainer-marketing-uae"
+    },
+    {
+      "slug": "legal-retainer-media-uae",
+      "title": "Media & entertainment law in the UAE: a legal retainer for production, music and publishing companies",
+      "description": "Media & entertainment law in the UAE for production, music and publishing firms: licences, permits, copyright, and a legal retainer from USD 990 a month.",
+      "datePublished": "2026-11-18",
+      "type": "guide",
+      "url": "https://regulex-legal.com/guides/legal-retainer-media-uae"
+    },
+    {
+      "slug": "legal-retainer-real-estate-uae",
+      "title": "Real estate lawyer Dubai: a legal retainer for UAE real estate companies",
+      "description": "Legal retainer for UAE real estate companies: DLD and RERA rules, off-plan escrow, tenancy, AML, and what a subscription from USD 990 a month + VAT covers.",
+      "datePublished": "2026-11-18",
+      "type": "guide",
+      "url": "https://regulex-legal.com/guides/legal-retainer-real-estate-uae"
+    },
+    {
+      "slug": "legal-retainer-shipping-uae",
+      "title": "Maritime lawyer on retainer: legal support for shipping companies in the UAE",
+      "description": "Legal retainer for shipping, ship-agency and chartering companies in the UAE: the 2023 Maritime Law, licences, time bars, what is covered, from USD 990 a month.",
+      "datePublished": "2026-11-18",
+      "type": "guide",
+      "url": "https://regulex-legal.com/guides/legal-retainer-shipping-uae"
+    },
     {
       "slug": "regulex-legal-intelligence-5-october-2026",
       "title": "Regulex Legal Intelligence — 5 October 2026",

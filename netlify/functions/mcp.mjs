@@ -16,7 +16,7 @@ const TOOLS = [
       type: "object",
       properties: {
         query: { type: "string", maxLength: 200, description: "Words to match in titles and summaries. Omit to list the latest." },
-        type: { type: "string", enum: ["article", "newsletter"], description: "Optional filter by publication type." },
+        type: { type: "string", enum: ["article", "newsletter", "guide"], description: "Optional filter by publication type." },
         limit: { type: "integer", minimum: 1, maximum: 20, default: 10 },
       },
       additionalProperties: false,

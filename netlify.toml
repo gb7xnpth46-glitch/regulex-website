@@ -152,6 +152,14 @@
     Access-Control-Allow-Origin = "*"
     Cache-Control = "public, max-age=300, must-revalidate"
 
+# Agentic Resource Discovery: the same catalogue at its current well-known address.
+[[headers]]
+  for = "/.well-known/ard.json"
+  [headers.values]
+    Content-Type = "application/json; charset=utf-8"
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=300, must-revalidate"
+
 # Personal Agent Protocol: website-only declaration (no auth, APIs or agent offered).
 [[headers]]
   for = "/.well-known/poppy.json"

@@ -33,24 +33,30 @@ function readPage(file) {
 }
 
 function buildArticles() {
-  const dir = path.join(root, "news-publications");
   const items = [];
-  for (const name of fs.readdirSync(dir)) {
-    const slug = name.replace(/\.html$/, "");
-    if (!name.endsWith(".html") || !/^[a-z0-9][a-z0-9-]*$/.test(slug)) continue; // skip drafts
-    try {
-      const page = readPage(path.join(dir, name));
-      if (!page.title) continue;
-      items.push({
-        slug,
-        title: page.title,
-        description: page.description,
-        datePublished: page.datePublished,
-        type: /^(regulex-legal-intelligence-|newsletter-)/.test(slug) ? "newsletter" : "article",
-        url: `${ORIGIN}/news-publications/${slug}`,
-      });
-    } catch (err) {
-      console.warn(`skip ${name}: ${err.message}`);
+  // Articles and newsletter issues live in /news-publications, industry guides in /guides.
+  for (const folder of ["news-publications", "guides"]) {
+    const dir = path.join(root, folder);
+    if (!fs.existsSync(dir)) continue;
+    for (const name of fs.readdirSync(dir)) {
+      const slug = name.replace(/\.html$/, "");
+      // skip drafts (_preview-*) and the guides hub page (index.html)
+      if (!name.endsWith(".html") || slug === "index" || !/^[a-z0-9][a-z0-9-]*$/.test(slug)) continue;
+      try {
+        const page = readPage(path.join(dir, name));
+        if (!page.title) continue;
+        items.push({
+          slug,
+          title: page.title,
+          description: page.description,
+          datePublished: page.datePublished,
+          type: folder === "guides" ? "guide"
+            : /^(regulex-legal-intelligence-|newsletter-)/.test(slug) ? "newsletter" : "article",
+          url: `${ORIGIN}/${folder}/${slug}`,
+        });
+      } catch (err) {
+        console.warn(`skip ${name}: ${err.message}`);
+      }
     }
   }
   return items.sort((a, b) => (b.datePublished || "").localeCompare(a.datePublished || ""));

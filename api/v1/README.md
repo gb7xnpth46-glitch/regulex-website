@@ -11,7 +11,7 @@ REGULEX service pages. No authentication, no client data, no write operations.
 
 | Endpoint | Returns |
 |---|---|
-| `GET /api/v1/articles.json` | All publications, newest first: `slug`, `title`, `description`, `datePublished`, `type` (`article` or `newsletter`), `url` |
+| `GET /api/v1/articles.json` | All publications, newest first: `slug`, `title`, `description`, `datePublished`, `type` (`article`, `newsletter` or `guide`), `url` |
 | `GET /api/v1/services.json` | Service pages and public contact channels |
 | `GET /api/health.json` | `{"status": "ok"}` |
 
