@@ -29,19 +29,21 @@ function readPage(file) {
     || text(html.match(/<title>([\s\S]*?)<\/title>/i)?.[1]).replace(/\s*\|.*$/, "");
   const description = text(html.match(/<meta\s+name="description"\s+content="([^"]*)"/i)?.[1]);
   const datePublished = html.match(/"datePublished"\s*:\s*"(\d{4}-\d{2}-\d{2})/)?.[1] || null;
-  return { title, description, datePublished };
+  // Industry guides mark themselves: <meta name="regulex:type" content="guide">.
+  const kind = html.match(/<meta\s+name="regulex:type"\s+content="([a-z]+)"/i)?.[1] || null;
+  return { title, description, datePublished, kind };
 }
 
 function buildArticles() {
   const items = [];
-  // Articles and newsletter issues live in /news-publications, industry guides in /guides.
-  for (const folder of ["news-publications", "guides"]) {
+  // Articles, newsletter issues and industry guides all live in /news-publications.
+  for (const folder of ["news-publications"]) {
     const dir = path.join(root, folder);
     if (!fs.existsSync(dir)) continue;
     for (const name of fs.readdirSync(dir)) {
       const slug = name.replace(/\.html$/, "");
-      // skip drafts (_preview-*) and the guides hub page (index.html)
-      if (!name.endsWith(".html") || slug === "index" || !/^[a-z0-9][a-z0-9-]*$/.test(slug)) continue;
+      // skip drafts (_preview-*)
+      if (!name.endsWith(".html") || !/^[a-z0-9][a-z0-9-]*$/.test(slug)) continue;
       try {
         const page = readPage(path.join(dir, name));
         if (!page.title) continue;
@@ -50,7 +52,7 @@ function buildArticles() {
           title: page.title,
           description: page.description,
           datePublished: page.datePublished,
-          type: folder === "guides" ? "guide"
+          type: page.kind === "guide" ? "guide"
             : /^(regulex-legal-intelligence-|newsletter-)/.test(slug) ? "newsletter" : "article",
           url: `${ORIGIN}/${folder}/${slug}`,
         });

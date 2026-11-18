@@ -84,6 +84,23 @@
   to = "/"
   status = 301
 
+# The industry guides were first published under /guides/ on 18 November 2026 and moved into
+# News & Publications the same day.
+[[redirects]]
+  from = "/guides"
+  to = "/news-publications"
+  status = 301
+
+[[redirects]]
+  from = "/guides/"
+  to = "/news-publications"
+  status = 301
+
+[[redirects]]
+  from = "/guides/*"
+  to = "/news-publications/:splat"
+  status = 301
+
 # Clean URLs - serve .html files without extension
 [[headers]]
   for = "/*"

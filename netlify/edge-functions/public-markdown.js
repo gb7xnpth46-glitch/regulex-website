@@ -10,9 +10,7 @@ const publicPaths = new Set([
 // Published articles (incl. future newsletter issues): lowercase slug only, so
 // draft files such as _preview-*.html and non-page assets are never matched.
 const articlePath = /^\/news-publications\/[a-z0-9][a-z0-9-]*$/;
-// Published guides: the hub (/guides) and lowercase guide slugs only.
-const guidePath = /^\/guides(\/[a-z0-9][a-z0-9-]*)?$/;
-const isPublicPath = path => publicPaths.has(path) || articlePath.test(path) || guidePath.test(path);
+const isPublicPath = path => publicPaths.has(path) || articlePath.test(path);
 
 function decodeEntities(text) {
   const entities = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ",
@@ -120,4 +118,4 @@ export default async function publicMarkdown(request, context) {
   return new Response(markdown, { status: 200, headers });
 }
 
-export const config = { path: [...publicPaths, "/news-publications/*", "/guides", "/guides/*"], onError: "bypass" };
+export const config = { path: [...publicPaths, "/news-publications/*"], onError: "bypass" };
