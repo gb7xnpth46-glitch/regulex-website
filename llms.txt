@@ -63,6 +63,13 @@ Published in News & Publications (general information, not legal advice). Each l
 - [Legal Services for Marketing Agencies in the UAE: A Retainer](https://regulex-legal.com/news-publications/legal-retainer-marketing-uae)
 - [Media & Entertainment Law in the UAE: A Legal Retainer Guide](https://regulex-legal.com/news-publications/legal-retainer-media-uae)
 
+## Practical guides for businesses in the UAE
+
+Published in News & Publications (general information, not legal advice). Each answers one practical question with links to official sources.
+
+- [Maternity Leave in the UAE: Rules an Employer Has to Follow](https://regulex-legal.com/news-publications/maternity-leave-uae-employers-guide)
+- [Labour Contract in the UAE: Contents, Registration and Limits](https://regulex-legal.com/news-publications/labour-contract-uae-employers-guide)
+
 ## Machine-readable access (read-only, public information)
 
 - MCP server (Streamable HTTP): https://regulex-legal.com/mcp — tools: search_publications, get_publication, list_services
