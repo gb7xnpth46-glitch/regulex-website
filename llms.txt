@@ -48,21 +48,19 @@ REGULEX Legal Consultancy (REGULEX FZ-LLC) is led by Oleg Pikalov, a legal profe
 - [Careers](https://regulex-legal.com/careers)
 - [Privacy Policy](https://regulex-legal.com/privacy)
 
-
-
 ## Legal retainer guides by industry
 
 Published in News & Publications (general information, not legal advice). Each lists the UAE rules and regulators that matter, with links to official sources.
 
-- [Real Estate Lawyer Dubai: Legal Retainer for Property Firms](https://regulex-legal.com/news-publications/legal-retainer-real-estate-uae)
-- [Data Protection Law UAE: Legal Retainer for AI and Data Firms](https://regulex-legal.com/news-publications/legal-retainer-ai-data-uae)
+- [Real Estate Lawyer in Dubai: Legal Retainer for Property Firms](https://regulex-legal.com/news-publications/legal-retainer-real-estate-uae)
+- [UAE Data Protection Law: Legal Retainer for AI and Data Firms](https://regulex-legal.com/news-publications/legal-retainer-ai-data-uae)
 - [UAE Cyber Law: Legal Retainer for Cybersecurity Companies](https://regulex-legal.com/news-publications/legal-retainer-cybersecurity-uae)
 - [Healthcare Lawyer on Retainer in the UAE: Guide for Clinics](https://regulex-legal.com/news-publications/legal-retainer-healthcare-uae)
 - [UAE Insurance Law: Legal Retainer Guide for Insurance Businesses](https://regulex-legal.com/news-publications/legal-retainer-insurance-uae)
 - [Banking Lawyers in the UAE: Legal Retainer for Finance Firms](https://regulex-legal.com/news-publications/legal-retainer-banking-uae)
 - [Construction Lawyer in the UAE: Legal Retainer for Contractors](https://regulex-legal.com/news-publications/legal-retainer-construction-uae)
 - [Maritime Lawyer on Retainer for Shipping Companies in the UAE](https://regulex-legal.com/news-publications/legal-retainer-shipping-uae)
-- [Marketing Legal Services in the UAE: A Retainer for Agencies](https://regulex-legal.com/news-publications/legal-retainer-marketing-uae)
+- [Legal Services for Marketing Agencies in the UAE: A Retainer](https://regulex-legal.com/news-publications/legal-retainer-marketing-uae)
 - [Media & Entertainment Law in the UAE: A Legal Retainer Guide](https://regulex-legal.com/news-publications/legal-retainer-media-uae)
 
 ## Machine-readable access (read-only, public information)
